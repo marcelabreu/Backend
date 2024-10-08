@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Café da Manhã</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Café da Manhã</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cliente_list' %}">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'produto_list' %}">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'pedido_list' %}">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'assinatura_list' %}">Assinaturas</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

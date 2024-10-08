@@ -1,0 +1,31 @@
+{% extends 'core/home.html' %}
+
+{% block content %}
+    <h2>Lista de Assinaturas</h2>
+    <a href="{% url 'assinatura_create' %}" class="btn btn-primary mb-2">Adicionar Assinatura</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Data de Início</th>
+                <th>Data de Fim</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assinatura in assinaturas %}
+                <tr>
+                    <td>{{ assinatura.cliente.nome }}</td>
+                    <td>{{ assinatura.data_inicio }}</td>
+                    <td>{{ assinatura.data_fim }}</td>
+                    <td>{{ assinatura.ativo|yesno:"Sim,Não" }}</td>
+                    <td>
+                        <a href="{% url 'assinatura_update' assinatura.id %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'assinatura_delete' assinatura.id %}" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
